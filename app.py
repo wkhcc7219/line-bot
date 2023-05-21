@@ -9,11 +9,11 @@ from linebot.models import(
     MessageEvent,TextMessage,TextSendMessage
 )
 import json
-
+import os
 
 app = Flask(__name__)
-line_bot_api = LineBotApi("njoRFpt+eXAJaFIyJsB2B6V9zO0ujQpHiK/KUby0nGyxUFSQca+u49Ijn2B0XyJdmBi7HWhSVzMU/9j28kgWA96tZxtMA+gIleWMGRW8hDNqxSrtd2F0iEuKrChd4e26n1GsLaXHxt7jb675Hl4RGgdB04t89/1O/w1cDnyilFU=")
-handler = WebhookHandler("4389557e14eac35158503b8f3713a5f5")
+line_bot_api = LineBotApi(os.getenv("CHANNEL_ACCESS_TOKEN"))
+handler = WebhookHandler("os.getenv(CHANNEL_SECRET)")
 
 @app.route("/callback",methods=["POST"])
 def callback():
